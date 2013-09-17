@@ -69,3 +69,8 @@ You can change some values by giving JAVA_OPTS.
 * Jetty log level(suports only INFO and DEBUG)
  * `org.emamotor.perf.memleak.util.jetty_log_level`
  * Default: INFO
+
+## Ref.
+
+* [Embedding Jetty - Jetty Document](http://www.eclipse.org/jetty/documentation/current/embedding-jetty.html)
+* [Using Maven - Jetty Document](http://www.eclipse.org/jetty/documentation/current/jetty-maven-helloworld.html)
