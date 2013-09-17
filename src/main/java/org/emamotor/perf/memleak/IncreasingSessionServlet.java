@@ -34,7 +34,7 @@ public class IncreasingSessionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        throw new UnsupportedOperationException("GET method id not supported");
+        throw new UnsupportedOperationException("GET method is not supported");
 
     }
 

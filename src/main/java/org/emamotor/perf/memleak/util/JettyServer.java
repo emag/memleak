@@ -34,7 +34,6 @@ public class JettyServer {
                 new AnnotationConfiguration(),
                 new WebInfConfiguration(),
         });
-
         server.setHandler(webapp);
         server.start();
         server.join();
