@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * @author emag
  */
-@WebServlet("/increasing-session")
+@WebServlet(urlPatterns = {"/increasing-session"})
 public class IncreasingSessionServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -28,7 +28,7 @@ public class IncreasingSessionServlet extends HttpServlet {
 
     private final int MB = 1024 * 1024;
 
-    private static Logger LOGGER = LoggerFactory.getLogger(IncreasingSessionServlet.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(IncreasingSessionServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
