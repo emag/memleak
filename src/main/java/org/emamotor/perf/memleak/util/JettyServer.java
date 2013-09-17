@@ -19,7 +19,7 @@ public class JettyServer {
             /* Property Name */ "org.emamotor.perf.memleak.util.jetty_port",
             /* Default       */ "8080"));
 
-    private static final String JETTY_LOG_LVEL = System.getProperty(
+    private static final String JETTY_LOG_LEVEL = System.getProperty(
             /* Property Name */ "org.emamotor.perf.memleak.util.jetty_log_level",
             /* Default       */ "INFO");
 
@@ -44,7 +44,7 @@ public class JettyServer {
         if (! (LOGGER instanceof ch.qos.logback.classic.Logger)) return;
         ch.qos.logback.classic.Logger logbackLogger = (ch.qos.logback.classic.Logger) LOGGER;
 
-        if (JETTY_LOG_LVEL.equals("DEBUG"))
+        if (JETTY_LOG_LEVEL.equals("DEBUG"))
             logbackLogger.setLevel(DEBUG);
         else
             logbackLogger.setLevel(INFO);
