@@ -9,6 +9,7 @@ A memory leak web application.
 * JDK 7
 * Maven 3.x
 * Tomcat 7
+* curl
 
 ## Usage
 
