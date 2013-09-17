@@ -13,7 +13,18 @@ A memory leak web application.
 
 ## Usage
 
-build this project and deploy on Tomcat and execute following command.
+build this project and deploy on Tomcat or use embedded Jetty.
+
+### Using Embedded Jetty
+
+~~~
+$ mvn clean package exec:java
+~~~
+Jetty listens HTTP Port on `8080` by default.
+
+### Execute HTTP Request
+
+Now running app, execute following command.
 
 ~~~
 $ curl -X POST --dump-header ~/tmp/headers http://localhost:8080/memleak/increasing-session
@@ -47,5 +58,14 @@ Exception in thread "http-bio-8080-exec-5" java.lang.OutOfMemoryError: Java heap
 
 ## Option
 
-You can change adding object num by giving JAVA_OPTS `-Dorg.emamotor.perf.memleak.adding_object_num` (Default: 10,000,000).
+You can change some values by giving JAVA_OPTS.
 
+* Adding object num
+ * `org.emamotor.perf.memleak.adding_object_num`
+ * Default: 10,000,000
+* Jetty port 
+ * `org.emamotor.perf.memleak.util.jetty_port`
+ * Default: 8080
+* Jetty log level(suports only INFO and DEBUG)
+ * `org.emamotor.perf.memleak.util.jetty_log_level`
+ * Default: INFO
