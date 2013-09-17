@@ -46,5 +46,5 @@ Exception in thread "http-bio-8080-exec-5" java.lang.OutOfMemoryError: Java heap
 
 ## Option
 
-You can change adding object num by giving JAVA_OPTS -Dorg.emamotor.perf.memleak.adding_object_num (Default: 10,000,000).
+You can change adding object num by giving JAVA_OPTS `-Dorg.emamotor.perf.memleak.adding_object_num` (Default: 10,000,000).
 
