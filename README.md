@@ -8,7 +8,7 @@ A memory leak web application.
 
 * JDK 7
 * Maven 3.x
-* Tomcat 7
+* Tomcat 7(If you use embedded Jetty, not necessary)
 * curl
 
 ## Usage
