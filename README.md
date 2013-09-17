@@ -74,3 +74,4 @@ You can change some values by giving JAVA_OPTS.
 
 * [Embedding Jetty - Jetty Document](http://www.eclipse.org/jetty/documentation/current/embedding-jetty.html)
 * [Using Maven - Jetty Document](http://www.eclipse.org/jetty/documentation/current/jetty-maven-helloworld.html)
+* [Example: Embedded Jetty w/ Servlet 3.0 and Annotation](https://github.com/jetty-project/embedded-servlet-3.0)
