@@ -2,7 +2,7 @@
 
 ## What is this?
 
-A memory leak web application.
+A memory leak web application by adding objects to a list session has.
 
 ## Required
 
