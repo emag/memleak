@@ -1,5 +1,7 @@
 package org.emamotor.perf.memleak;
 
+import org.emamotor.perf.memleak.model.Memleak;
+import org.emamotor.perf.memleak.model.MemleakContainer;
 import org.emamotor.perf.memleak.util.RuntimeUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +21,6 @@ import java.util.List;
  */
 @WebServlet(urlPatterns = {"/increasing-session"})
 public class IncreasingSessionServlet extends HttpServlet {
-
-    private static final long serialVersionUID = 1L;
 
     private static final long ADDING_OBJECT_NUM = Long.valueOf(System.getProperty(
             /* Property Name */ "org.emamotor.perf.memleak.adding_object_num",
@@ -44,15 +44,17 @@ public class IncreasingSessionServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true);
 
-        List<Object> memleakList = (List<Object>) session.getAttribute("memleakList");
+        MemleakContainer memleakContainer = (MemleakContainer) session.getAttribute("memleakContainer");
 
-        if (memleakList == null) {
+        if (memleakContainer == null) {
             LOGGER.info("[Created new session]");
-            memleakList = new ArrayList<>();
+            memleakContainer = new MemleakContainer();
         }
 
-        memleakList.addAll(createAddingList());
-        session.setAttribute("memleakList", memleakList);
+        List<Memleak> memleaks = memleakContainer.getMemleaks();
+        memleaks.addAll(createAddingMemleaks());
+        memleakContainer.setMemleaks(memleaks);
+        session.setAttribute("memleakContainer", memleakContainer);
 
         LOGGER.info("Adding object num: {}",    ADDING_OBJECT_NUM);
         LOGGER.info("Used  Heap Memory: {} MB", RuntimeUtil.getUsedHeapMemory() / MB);
@@ -62,13 +64,13 @@ public class IncreasingSessionServlet extends HttpServlet {
 
     }
 
-    private List<Object> createAddingList() {
+    private List<Memleak> createAddingMemleaks() {
 
-        List<Object> addingList = new ArrayList<>();
+        List<Memleak> addingMemleaks = new ArrayList<>();
         for (int i = 0; i < ADDING_OBJECT_NUM; i++) {
-            addingList.add(new Object());
+            addingMemleaks.add(new Memleak(i));
         }
-        return addingList;
+        return addingMemleaks;
 
     }
 
