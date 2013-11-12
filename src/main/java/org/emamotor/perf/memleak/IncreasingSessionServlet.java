@@ -24,7 +24,7 @@ public class IncreasingSessionServlet extends HttpServlet {
 
     private static final long ADDING_OBJECT_NUM = Long.valueOf(System.getProperty(
             /* Property Name */ "org.emamotor.perf.memleak.adding_object_num",
-            /* Default       */ "10000000"));
+            /* Default       */ "5000000"));
 
     private final int MB = 1024 * 1024;
 
